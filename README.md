@@ -1,6 +1,6 @@
 # tibi-stack
 
-A personal AI skills toolkit for product management, strategy, and software development — built for Claude Code.
+A personal AI skills toolkit for product management, strategy, and software development built for Claude Code.
 
 Inspired by [gstack](https://github.com/garrytan/gstack) by Garry Tan.
 
