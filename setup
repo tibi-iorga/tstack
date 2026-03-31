@@ -36,6 +36,12 @@ else
   echo "Created ~/.claude/CLAUDE.md and registered tibi-stack"
 fi
 
+# Copy skills into ~/.claude/commands/ so they appear in the / menu
+COMMANDS_DIR="$HOME/.claude/commands"
+mkdir -p "$COMMANDS_DIR"
+cp "$TIBI_DIR/skills/"*.md "$COMMANDS_DIR/"
+echo "Installed $(ls "$COMMANDS_DIR"/*.md | wc -l | tr -d ' ') skills to ~/.claude/commands/"
+
 echo ""
-echo "Done. Restart Claude Code and use /office-hours to get started."
+echo "Done. Restart Claude Code and type / to see all tibi-stack skills."
 echo ""

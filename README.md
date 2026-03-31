@@ -14,13 +14,29 @@ tibi-stack is a collection of slash commands for Claude Code that act as a perso
 
 ## Setup
 
+**Option 1: paste this into Claude Code**
+
+Open Claude Code and paste the following message into the chat:
+
+```
+I want to install tibi-stack from https://github.com/tibi-iorga/tibi-stack. Please run the setup script:
+
+git clone https://github.com/tibi-iorga/tibi-stack.git ~/.claude/skills/tibi-stack && cd ~/.claude/skills/tibi-stack && ./setup
+
+Then confirm how many skills were installed.
+```
+
+Claude will clone the repo and run setup for you.
+
+**Option 2: run it yourself**
+
 ```bash
 git clone https://github.com/tibi-iorga/tibi-stack.git ~/.claude/skills/tibi-stack && cd ~/.claude/skills/tibi-stack && ./setup
 ```
 
 Requirements: [Claude Code](https://claude.ai/code) and Git.
 
-The setup script clones the repo to `~/.claude/skills/tibi-stack` and registers it in your `~/.claude/CLAUDE.md` so skills are available as slash commands immediately.
+The setup script clones the repo to `~/.claude/skills/tibi-stack`, registers it in your `~/.claude/CLAUDE.md`, and copies all skills into `~/.claude/commands/` so they appear in the `/` menu. Restart Claude Code after setup.
 
 ---
 

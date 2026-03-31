@@ -4,10 +4,10 @@ Update tibi-stack to the latest version from GitHub.
 
 ## Process
 
-Run the following in the tibi-stack skills directory:
+Run the following:
 
 ```bash
-cd ~/.claude/skills/tibi-stack && git pull
+cd ~/.claude/skills/tibi-stack && git pull && cp skills/*.md ~/.claude/commands/
 ```
 
 Report back:
