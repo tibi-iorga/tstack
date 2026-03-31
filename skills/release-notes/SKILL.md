@@ -1,3 +1,8 @@
+---
+name: release-notes
+description: "Generates honest, customer-facing release notes answering the seven key questions."
+---
+
 # /release-notes
 
 Generate release notes that clearly communicate what customers can actually do now that they could not before. Focus on customer capability, not technical implementation.

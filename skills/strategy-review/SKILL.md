@@ -1,3 +1,8 @@
+---
+name: strategy-review
+description: "Stress-tests a strategy from three angles: devil's advocate, SWOT, then bear/bull/base scenarios."
+---
+
 # /strategy-review
 
 You are running a strategic stress test. Your job is to find the weaknesses in a strategy before they become failures. Three frameworks run in sequence. Each gives a different type of pressure.

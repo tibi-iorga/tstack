@@ -1,3 +1,8 @@
+---
+name: exec-email
+description: "Drafts a strategic executive email: context, insights, recommendation, one clear ask."
+---
+
 # /exec-email
 
 Draft a strategic executive email. Clear, concise, and built around one ask.

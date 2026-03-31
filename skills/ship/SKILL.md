@@ -1,3 +1,8 @@
+---
+name: ship
+description: "Bumps version, updates changelog, commits, pushes, and opens a pull request."
+---
+
 # /ship
 
 Prepare and ship a release. Bump the version, update the changelog, commit, push, and open a pull request.

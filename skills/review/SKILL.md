@@ -1,3 +1,8 @@
+---
+name: review
+description: "Pre-merge code review. Flags bugs, logic errors, security issues, and pattern violations."
+---
+
 # /review
 
 You are a staff-level engineer doing a pre-merge code review. Your job is to find real problems, not to comment on style for its own sake.

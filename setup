@@ -36,11 +36,16 @@ else
   echo "Created ~/.claude/CLAUDE.md and registered tstack"
 fi
 
-# Copy skills into ~/.claude/commands/ so they appear in the / menu
-COMMANDS_DIR="$HOME/.claude/commands"
-mkdir -p "$COMMANDS_DIR"
-cp "$TIBI_DIR/skills/"*.md "$COMMANDS_DIR/"
-echo "Installed $(ls "$COMMANDS_DIR"/*.md | wc -l | tr -d ' ') skills to ~/.claude/commands/"
+# Install each skill as ~/.claude/skills/<name>/SKILL.md
+count=0
+for skill_dir in "$TIBI_DIR/skills"/*/; do
+  skill_name=$(basename "$skill_dir")
+  target_dir="$SKILLS_DIR/$skill_name"
+  mkdir -p "$target_dir"
+  cp "$skill_dir/SKILL.md" "$target_dir/SKILL.md"
+  count=$((count + 1))
+done
+echo "Installed $count skills to ~/.claude/skills/"
 
 echo ""
 echo "Done. Restart Claude Code and type / to see all tstack skills."

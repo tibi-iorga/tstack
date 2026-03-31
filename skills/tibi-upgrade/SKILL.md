@@ -1,3 +1,8 @@
+---
+name: tibi-upgrade
+description: "Pulls the latest tstack skills from GitHub."
+---
+
 # /tibi-upgrade
 
 Update tstack to the latest version from GitHub.
@@ -7,7 +12,7 @@ Update tstack to the latest version from GitHub.
 Run the following:
 
 ```bash
-cd ~/.claude/skills/tstack && git pull && cp skills/*.md ~/.claude/commands/
+cd ~/.claude/skills/tstack && git pull && ./setup
 ```
 
 Report back:

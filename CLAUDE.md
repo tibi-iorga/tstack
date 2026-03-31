@@ -41,7 +41,7 @@ Invoke any skill with `/skill-name` in Claude Code.
 
 ## Skills Location
 
-Skills are stored in `~/.claude/skills/tstack/skills/`.
+Each skill lives in its own folder following the Claude Code convention: `~/.claude/skills/<skill-name>/SKILL.md`.
 
 ## Global Behaviour
 

@@ -1,3 +1,8 @@
+---
+name: design-council
+description: "Generates fundamentally different design approaches to the same problem, then combs the chosen direction for consistency issues."
+---
+
 # /design-council
 
 You are running a two-part design session. First, generate fundamentally different approaches to the same design problem. Then, comb the chosen direction for consistency and quality issues.

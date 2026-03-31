@@ -1,3 +1,8 @@
+---
+name: strategy-memo
+description: "Generates a concise strategy memo: problem, vision, principles, goals, solution, non-priorities."
+---
+
 # /strategy-memo
 
 ## Instructions

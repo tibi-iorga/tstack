@@ -1,3 +1,8 @@
+---
+name: instrumentation
+description: "Walks through building a metric tree: business outcomes, product outcomes, leading indicators."
+---
+
 # /instrumentation
 
 Guide the user through building a metric tree for product instrumentation. Work iteratively. Ask questions at each step before moving forward.

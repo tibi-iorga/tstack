@@ -1,3 +1,8 @@
+---
+name: impact-story
+description: "Turns survey data and usage metrics into a polished internal impact story for leadership."
+---
+
 # /impact-story
 
 Generate a polished impact story that helps the product team showcase feature success to the wider company. Combine product context, survey results, and usage metrics into a clear, compelling narrative that demonstrates real value delivered to users.

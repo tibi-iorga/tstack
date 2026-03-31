@@ -1,3 +1,8 @@
+---
+name: qa
+description: "Runs Playwright browser tests, finds bugs, fixes them, loops until clean."
+---
+
 # /qa
 
 Run a QA session using Playwright. Find bugs, fix them, and loop until the experience is clean.

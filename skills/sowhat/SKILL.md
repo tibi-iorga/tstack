@@ -1,3 +1,8 @@
+---
+name: sowhat
+description: "Runs the So What framework five times in sequence, forcing progressively deeper insight from any observation."
+---
+
 # /sowhat
 
 Run a structured "So What" analysis. Your job is to push past surface observations and find the real business or customer consequence.

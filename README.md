@@ -36,7 +36,7 @@ git clone https://github.com/tibi-iorga/tstack.git ~/.claude/skills/tstack && cd
 
 Requirements: [Claude Code](https://claude.ai/code) and Git.
 
-The setup script clones the repo to `~/.claude/skills/tstack`, registers it in your `~/.claude/CLAUDE.md`, and copies all skills into `~/.claude/commands/` so they appear in the `/` menu. Restart Claude Code after setup.
+The setup script clones the repo to `~/.claude/skills/tstack`, registers it in your `~/.claude/CLAUDE.md`, and installs each skill as `~/.claude/skills/<skill-name>/SKILL.md` following the native Claude Code convention. Restart Claude Code after setup.
 
 ---
 
@@ -103,13 +103,13 @@ All skills follow a shared set of conventions defined in `agents.md`:
 
 ## How it works
 
-Skills are markdown prompt files in the `skills/` directory. When you type `/skill-name` in Claude Code, it reads the corresponding file and follows those instructions. Adding a new skill is as simple as adding a `.md` file to `skills/` and documenting it in `CLAUDE.md`.
+Each skill lives in its own folder following the native Claude Code convention: `skills/<skill-name>/SKILL.md`. Each `SKILL.md` has YAML frontmatter with the skill name and description, followed by the prompt instructions. When you type `/skill-name` in Claude Code, it reads the corresponding `SKILL.md` and follows those instructions.
 
 ---
 
 ## Adding new skills
 
-1. Create `skills/your-skill-name.md` with clear instructions.
+1. Create `skills/your-skill-name/SKILL.md` with frontmatter (`name`, `description`) and instructions.
 2. Add an entry to the skills list in `CLAUDE.md`.
 3. Commit and push. Run `/tibi-upgrade` on any other machine to get the update.
 

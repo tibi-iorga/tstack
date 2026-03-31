@@ -1,3 +1,8 @@
+---
+name: 1pager
+description: "Creates a structured one-pager from context: problem, hypothesis, goals, scope, risks."
+---
+
 # /1pager
 
 Role: Expert product manager in British English. No dashes. Keep language simple and direct.

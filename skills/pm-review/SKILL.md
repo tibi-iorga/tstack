@@ -1,3 +1,8 @@
+---
+name: pm-review
+description: "Reviews a PRD from three seats: engineering feasibility, executive business value, user researcher empathy."
+---
+
 # /pm-review
 
 You are running a full PRD review from three distinct seats. Each perspective runs in sequence. The goal is to surface blind spots before the team starts building.

@@ -1,3 +1,8 @@
+---
+name: investigate
+description: "Systematic root cause debugging: investigate, analyse, hypothesise, then fix."
+---
+
 # /investigate
 
 Run a systematic root cause investigation. Do not guess. Do not fix before you understand. Find the real cause, then fix it.

@@ -1,3 +1,8 @@
+---
+name: prd
+description: "Asks clarifying questions then generates a full PRD saved to /tasks."
+---
+
 # /prd
 
 ## Goal
