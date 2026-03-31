@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+set -e
+
+SKILLS_DIR="$HOME/.claude/skills"
+TIBI_DIR="$SKILLS_DIR/tibi-stack"
+CLAUDE_MD="$HOME/.claude/CLAUDE.md"
+IMPORT_LINE="@~/.claude/skills/tibi-stack/CLAUDE.md"
+
+echo ""
+echo "tibi-stack setup"
+echo "----------------"
+
+# Clone or update the repo
+if [ -d "$TIBI_DIR/.git" ]; then
+  echo "Updating tibi-stack..."
+  cd "$TIBI_DIR" && git pull
+else
+  echo "Installing tibi-stack..."
+  mkdir -p "$SKILLS_DIR"
+  git clone https://github.com/tibi-iorga/tibi-stack.git "$TIBI_DIR"
+fi
+
+# Add reference to ~/.claude/CLAUDE.md if not already there
+if [ -f "$CLAUDE_MD" ]; then
+  if grep -q "tibi-stack" "$CLAUDE_MD"; then
+    echo "tibi-stack already registered in ~/.claude/CLAUDE.md"
+  else
+    echo "" >> "$CLAUDE_MD"
+    echo "$IMPORT_LINE" >> "$CLAUDE_MD"
+    echo "Registered tibi-stack in ~/.claude/CLAUDE.md"
+  fi
+else
+  mkdir -p "$HOME/.claude"
+  echo "$IMPORT_LINE" > "$CLAUDE_MD"
+  echo "Created ~/.claude/CLAUDE.md and registered tibi-stack"
+fi
+
+echo ""
+echo "Done. Restart Claude Code and use /office-hours to get started."
+echo ""
