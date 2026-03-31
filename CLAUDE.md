@@ -40,6 +40,16 @@ Invoke any skill with `/skill-name` in Claude Code.
 
 - **tibi-upgrade** — Pulls the latest skills from GitHub.
 
+## Update Check
+
+On the first skill invocation in a session, run the update check silently:
+
+```bash
+~/.claude/skills/tstack/bin/tstack-update-check 2>/dev/null || true
+```
+
+If the output contains `UPGRADE_AVAILABLE`, tell the user: "tstack **v{new}** is available (you're on v{old}). Run `/tibi-upgrade` to update." Then continue with the skill as normal.
+
 ## Skills Location
 
 Each skill lives in its own folder following the Claude Code convention: `~/.claude/skills/<skill-name>/SKILL.md`.

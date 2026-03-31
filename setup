@@ -36,6 +36,9 @@ else
   echo "Created ~/.claude/CLAUDE.md and registered tstack"
 fi
 
+# Make update check script executable
+chmod +x "$TIBI_DIR/bin/tstack-update-check" 2>/dev/null || true
+
 # Install each skill as ~/.claude/skills/<name>/SKILL.md
 count=0
 for skill_dir in "$TIBI_DIR/skills"/*/; do
