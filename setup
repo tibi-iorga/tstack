@@ -3,37 +3,37 @@
 set -e
 
 SKILLS_DIR="$HOME/.claude/skills"
-TIBI_DIR="$SKILLS_DIR/tibi-stack"
+TIBI_DIR="$SKILLS_DIR/tstack"
 CLAUDE_MD="$HOME/.claude/CLAUDE.md"
-IMPORT_LINE="@~/.claude/skills/tibi-stack/CLAUDE.md"
+IMPORT_LINE="@~/.claude/skills/tstack/CLAUDE.md"
 
 echo ""
-echo "tibi-stack setup"
-echo "----------------"
+echo "tstack setup"
+echo "------------"
 
 # Clone or update the repo
 if [ -d "$TIBI_DIR/.git" ]; then
-  echo "Updating tibi-stack..."
+  echo "Updating tstack..."
   cd "$TIBI_DIR" && git pull
 else
-  echo "Installing tibi-stack..."
+  echo "Installing tstack..."
   mkdir -p "$SKILLS_DIR"
-  git clone https://github.com/tibi-iorga/tibi-stack.git "$TIBI_DIR"
+  git clone https://github.com/tibi-iorga/tstack.git "$TIBI_DIR"
 fi
 
 # Add reference to ~/.claude/CLAUDE.md if not already there
 if [ -f "$CLAUDE_MD" ]; then
-  if grep -q "tibi-stack" "$CLAUDE_MD"; then
-    echo "tibi-stack already registered in ~/.claude/CLAUDE.md"
+  if grep -q "tstack" "$CLAUDE_MD"; then
+    echo "tstack already registered in ~/.claude/CLAUDE.md"
   else
     echo "" >> "$CLAUDE_MD"
     echo "$IMPORT_LINE" >> "$CLAUDE_MD"
-    echo "Registered tibi-stack in ~/.claude/CLAUDE.md"
+    echo "Registered tstack in ~/.claude/CLAUDE.md"
   fi
 else
   mkdir -p "$HOME/.claude"
   echo "$IMPORT_LINE" > "$CLAUDE_MD"
-  echo "Created ~/.claude/CLAUDE.md and registered tibi-stack"
+  echo "Created ~/.claude/CLAUDE.md and registered tstack"
 fi
 
 # Copy skills into ~/.claude/commands/ so they appear in the / menu
@@ -43,5 +43,5 @@ cp "$TIBI_DIR/skills/"*.md "$COMMANDS_DIR/"
 echo "Installed $(ls "$COMMANDS_DIR"/*.md | wc -l | tr -d ' ') skills to ~/.claude/commands/"
 
 echo ""
-echo "Done. Restart Claude Code and type / to see all tibi-stack skills."
+echo "Done. Restart Claude Code and type / to see all tstack skills."
 echo ""

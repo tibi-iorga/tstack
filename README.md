@@ -1,14 +1,14 @@
-# tibi-stack
+# tstack
 
 A personal AI skills toolkit for product management, strategy, and software development built for Claude Code.
 
-Inspired by [gstack](https://github.com/garrytan/gstack) by Garry Tan.
+Shameless name rip off from Garry Tan's [gstack](https://github.com/garrytan/gstack), but made for my workflow.
 
 ---
 
 ## What it is
 
-tibi-stack is a collection of slash commands for Claude Code that act as a personal council of specialists. Each skill embodies a distinct role or framework, from YC-style product critique to systematic root cause debugging. The goal is to have opinionated, high-quality thinking partners available instantly, without re-prompting from scratch every time.
+tstack is a collection of slash commands for Claude Code that act as a personal council of specialists. Each skill embodies a distinct role or framework, from YC-style product critique to systematic root cause debugging. The goal is to have opinionated, high-quality thinking partners available instantly, without re-prompting from scratch every time.
 
 ---
 
@@ -19,9 +19,9 @@ tibi-stack is a collection of slash commands for Claude Code that act as a perso
 Open Claude Code and paste the following message into the chat:
 
 ```
-I want to install tibi-stack from https://github.com/tibi-iorga/tibi-stack. Please run the setup script:
+I want to install tstack from https://github.com/tibi-iorga/tstack. Please run the setup script:
 
-git clone https://github.com/tibi-iorga/tibi-stack.git ~/.claude/skills/tibi-stack && cd ~/.claude/skills/tibi-stack && ./setup
+git clone https://github.com/tibi-iorga/tstack.git ~/.claude/skills/tstack && cd ~/.claude/skills/tstack && ./setup
 
 Then confirm how many skills were installed.
 ```
@@ -31,12 +31,12 @@ Claude will clone the repo and run setup for you.
 **Option 2: run it yourself**
 
 ```bash
-git clone https://github.com/tibi-iorga/tibi-stack.git ~/.claude/skills/tibi-stack && cd ~/.claude/skills/tibi-stack && ./setup
+git clone https://github.com/tibi-iorga/tstack.git ~/.claude/skills/tstack && cd ~/.claude/skills/tstack && ./setup
 ```
 
 Requirements: [Claude Code](https://claude.ai/code) and Git.
 
-The setup script clones the repo to `~/.claude/skills/tibi-stack`, registers it in your `~/.claude/CLAUDE.md`, and copies all skills into `~/.claude/commands/` so they appear in the `/` menu. Restart Claude Code after setup.
+The setup script clones the repo to `~/.claude/skills/tstack`, registers it in your `~/.claude/CLAUDE.md`, and copies all skills into `~/.claude/commands/` so they appear in the `/` menu. Restart Claude Code after setup.
 
 ---
 
@@ -117,4 +117,4 @@ Skills are markdown prompt files in the `skills/` directory. When you type `/ski
 
 ## Acknowledgements
 
-Structure and approach inspired by [gstack](https://github.com/garrytan/gstack) by Garry Tan. The skill content, frameworks, and conventions are my own.
+Shameless name rip off from Garry Tan's [gstack](https://github.com/garrytan/gstack), but made for my workflow. The skill content, frameworks, and conventions are my own.

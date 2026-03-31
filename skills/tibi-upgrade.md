@@ -1,13 +1,13 @@
 # /tibi-upgrade
 
-Update tibi-stack to the latest version from GitHub.
+Update tstack to the latest version from GitHub.
 
 ## Process
 
 Run the following:
 
 ```bash
-cd ~/.claude/skills/tibi-stack && git pull && cp skills/*.md ~/.claude/commands/
+cd ~/.claude/skills/tstack && git pull && cp skills/*.md ~/.claude/commands/
 ```
 
 Report back:
@@ -18,5 +18,5 @@ Report back:
 If the directory does not exist, prompt the user to run the setup script first:
 
 ```bash
-git clone https://github.com/tibi-iorga/tibi-stack.git ~/.claude/skills/tibi-stack && cd ~/.claude/skills/tibi-stack && ./setup
+git clone https://github.com/tibi-iorga/tstack.git ~/.claude/skills/tstack && cd ~/.claude/skills/tstack && ./setup
 ```

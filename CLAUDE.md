@@ -1,6 +1,6 @@
-# tibi-stack
+# tstack
 
-Personal AI skills toolkit for product management, strategy, and software development. Inspired by [gstack](https://github.com/garrytan/gstack).
+Personal AI skills toolkit for product management, strategy, and software development. Shameless name rip off from Garry Tan's [gstack](https://github.com/garrytan/gstack), but made for my workflow.
 
 ## Available Skills
 
@@ -41,7 +41,7 @@ Invoke any skill with `/skill-name` in Claude Code.
 
 ## Skills Location
 
-Skills are stored in `~/.claude/skills/tibi-stack/skills/`.
+Skills are stored in `~/.claude/skills/tstack/skills/`.
 
 ## Global Behaviour
 
