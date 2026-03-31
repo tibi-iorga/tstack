@@ -14,6 +14,7 @@ Invoke any skill with `/skill-name` in Claude Code.
 - **strategy-memo** — Generates a concise strategy memo: problem, vision, principles, goals, solution, non-priorities.
 - **sowhat** — Runs the So What framework five times in sequence, forcing progressively deeper insight from any observation.
 - **instrumentation** — Walks through building a metric tree: business outcomes, product outcomes, leading indicators.
+- **ai-moat** — Stress tests an idea's defensibility when AI compresses software costs to zero, then recommends pivots toward durable moats.
 
 ### Councils (Multi-Perspective Reviews)
 
