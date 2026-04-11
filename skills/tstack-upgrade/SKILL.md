@@ -1,9 +1,9 @@
 ---
-name: tibi-upgrade
+name: tstack-upgrade
 description: "Pulls the latest tstack skills from GitHub."
 ---
 
-# /tibi-upgrade
+# /tstack-upgrade
 
 Update tstack to the latest version from GitHub.
 

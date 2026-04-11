@@ -87,7 +87,7 @@ Multi-perspective reviews where different lenses run in sequence to surface blin
 
 | Skill | What it does |
 |---|---|
-| `/tibi-upgrade` | Pulls the latest skills from GitHub. |
+| `/tstack-upgrade` | Pulls the latest skills from GitHub. |
 
 ---
 
@@ -113,7 +113,7 @@ Each skill lives in its own folder following the native Claude Code convention: 
 
 1. Create `skills/your-skill-name/SKILL.md` with frontmatter (`name`, `description`) and instructions.
 2. Add an entry to the skills list in `CLAUDE.md`.
-3. Commit and push. Run `/tibi-upgrade` on any other machine to get the update.
+3. Commit and push. Run `/tstack-upgrade` on any other machine to get the update.
 
 ---
 
