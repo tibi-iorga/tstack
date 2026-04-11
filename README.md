@@ -53,6 +53,7 @@ The setup script clones the repo to `~/.claude/skills/tstack`, registers it in y
 | `/sowhat` | Runs the So What framework five times in sequence, forcing progressively deeper insight from any observation. |
 | `/instrumentation` | Walks through building a metric tree: business outcomes, product outcomes, leading indicators. |
 | `/ai-moat` | Stress tests an idea's defensibility when AI compresses software costs to zero, then recommends pivots toward durable moats. |
+| `/ooda` | Decomposes a human role or workflow into OODA sub-functions, classifies which AI absorbs today and which stay irreducibly human, then points to where durable value accrues. |
 
 ### Councils
 
