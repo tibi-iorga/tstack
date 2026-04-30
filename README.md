@@ -139,3 +139,9 @@ Each skill lives in its own folder following the native Claude Code convention: 
 ## Acknowledgements
 
 Shameless name rip off from Garry Tan's [gstack](https://github.com/garrytan/gstack), but made for my workflow. The skill content, frameworks, and conventions are my own.
+
+---
+
+## License
+
+MIT. See [LICENSE](LICENSE). Use it, fork it, change it, ship your own version.
