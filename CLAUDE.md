@@ -30,6 +30,10 @@ Invoke any skill with `/skill-name` in Claude Code.
 - **impact-story** — Turns survey data and usage metrics into a polished internal impact story for leadership.
 - **exec-email** — Drafts a strategic executive email: context, insights, recommendation, one clear ask.
 
+### Voices
+
+- **carmack** — Carmack-voice critique. Either edits a draft for clarity, honesty, and concreteness, or reviews a concept through a first-principles, what-do-you-actually-know lens.
+
 ### Engineering
 
 - **review** — Pre-merge code review. Flags bugs, logic errors, security issues, and pattern violations.
