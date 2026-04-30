@@ -108,40 +108,6 @@ Single-voice reviews and rewrites in the style of a specific operator or writer.
 
 ---
 
-## Global conventions
-
-All skills follow a shared set of conventions defined in `agents.md`:
-
-- British English throughout.
-- No dashes; commas, semicolons, or periods instead.
-- Simple, direct language.
-- Senior product manager tone.
-- No invented data or speculative metrics.
-
-The `/carmack` skill is a deliberate exception. It outputs in Carmack's actual voice (American English, dashes allowed) because flattening him into house style defeats the point.
-
----
-
-## How it works
-
-Each skill lives in its own folder following the native Claude Code convention: `skills/<skill-name>/SKILL.md`. Each `SKILL.md` has YAML frontmatter with the skill name and description, followed by the prompt instructions. When you type `/skill-name` in Claude Code, it reads the corresponding `SKILL.md` and follows those instructions.
-
----
-
-## Adding new skills
-
-1. Create `skills/your-skill-name/SKILL.md` with frontmatter (`name`, `description`) and instructions.
-2. Add an entry to the skills list in `CLAUDE.md`.
-3. Commit and push. Run `/tstack-upgrade` on any other machine to get the update.
-
----
-
-## Acknowledgements
-
-Shameless name rip off from Garry Tan's [gstack](https://github.com/garrytan/gstack), but made for my workflow. The skill content, frameworks, and conventions are my own.
-
----
-
 ## License
 
 MIT. See [LICENSE](LICENSE). Use it, fork it, change it, ship your own version.
