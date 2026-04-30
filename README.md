@@ -1,14 +1,32 @@
 # tstack
 
-A personal AI skills toolkit for product management, strategy, and software development built for Claude Code.
-
-Shameless name rip off from Garry Tan's [gstack](https://github.com/garrytan/gstack), but made for my workflow.
+A thinking tool for product ideas. Slash commands for the kind of reasoning that usually only comes from experience.
 
 ---
 
 ## What it is
 
-tstack is a collection of slash commands for Claude Code that act as a personal council of specialists. Each skill embodies a distinct role or framework, from YC-style product critique to systematic root cause debugging. The goal is to have opinionated, high-quality thinking partners available instantly, without re-prompting from scratch every time.
+Good intuition is what is left over after you have thought through the same kind of problem many times. That is what experience actually is. tstack lets you run that kind of thinking on demand, against whatever idea is in front of you, instead of waiting for the reps to accumulate.
+
+Each skill is a structured way of thinking, packaged as a slash command for [Claude Code](https://claude.ai/code). You type `/sowhat` and get the So What ladder run five levels deep on whatever you paste in. You type `/carmack` and get a Carmack-voice critique of your draft. You type `/mentor-review` and get the same idea reviewed by six different operators in sequence. The skills are opinionated. They are not trying to be neutral.
+
+---
+
+## What it solves
+
+Four failure modes when you are thinking through an idea on your own. Each one has a few skills aimed at it.
+
+**Shallow takes.** You stop at the first plausible answer instead of pushing deeper.
+Run `/sowhat`, `/office-hours`, `/ai-moat`.
+
+**Single perspective.** You only see from your own seat. You miss what an engineer, a CEO, a designer, or a customer would say.
+Run `/mentor-review`, `/pm-review`, `/strategy-review`, `/design-council`.
+
+**Vague writing.** Your draft hedges where it should commit, and commits where it should hedge.
+Run `/carmack`, `/exec-email`, `/release-notes`.
+
+**Unstructured ideas.** You have a feeling, not a memo. Nothing concrete for anyone, including you, to react to.
+Run `/1pager`, `/strategy-memo`, `/prd`, `/instrumentation`.
 
 ---
 
@@ -74,6 +92,14 @@ Multi-perspective reviews where different lenses run in sequence to surface blin
 | `/impact-story` | Turns survey data and usage metrics into a polished internal impact story for leadership. |
 | `/exec-email` | Drafts a strategic executive email: context, insights, recommendation, one clear ask. |
 
+### Voices
+
+Single-voice reviews and rewrites in the style of a specific operator or writer.
+
+| Skill | What it does |
+|---|---|
+| `/carmack` | Carmack-voice critique. Either edits a draft for clarity, honesty, and concreteness, or reviews a concept through a first-principles, what-do-you-actually-know lens. |
+
 ### Engineering
 
 | Skill | What it does |
@@ -100,6 +126,8 @@ All skills follow a shared set of conventions defined in `agents.md`:
 - Simple, direct language.
 - Senior product manager tone.
 - No invented data or speculative metrics.
+
+The `/carmack` skill is a deliberate exception. It outputs in Carmack's actual voice (American English, dashes allowed) because flattening him into house style defeats the point.
 
 ---
 
