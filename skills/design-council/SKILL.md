@@ -39,7 +39,51 @@ Under what conditions (user type, use frequency, context of use, data complexity
 
 ---
 
-After presenting all four approaches, ask the user which one they want to move forward with, or whether they want to combine elements from multiple approaches. Do not proceed to Part 2 until the user has chosen.
+After presenting all four approaches in text, ask:
+
+```
+Would you like an HTML preview that shows the four approaches side by side in your browser? (yes / no)
+```
+
+If yes, follow **Part 1b** below. If no, skip straight to the choice prompt.
+
+Then, regardless of whether a preview was generated, ask the user which approach they want to move forward with, or whether they want to combine elements from multiple approaches. Do not proceed to Part 2 until the user has chosen.
+
+---
+
+## Part 1b: HTML Preview (optional)
+
+Generate a single, self-contained HTML file that visualises all four approaches side by side. The goal is a quick visual gut check, not a polished mockup.
+
+**File requirements**
+- Single HTML file. No build step. No external dependencies beyond a CDN.
+- Use Tailwind via CDN (`<script src="https://cdn.tailwindcss.com"></script>`) for styling. Do not hand-roll CSS.
+- Inter font via Google Fonts is acceptable. Avoid heavy libraries.
+- Light mode by default. Clean, neutral aesthetic. The point is to show paradigm differences, not visual flair.
+
+**Page structure**
+1. Top header: the design problem in one sentence, plus a one-line caveat ("Exploration sketches, not final designs.").
+2. Four-column grid on wide screens, two-column on tablet, single column on mobile. Use Tailwind responsive classes.
+3. Each column contains:
+   - Approach name as a heading.
+   - One-sentence summary of the mental model.
+   - A **visual representation** of the UI for that approach. This is the important bit. Build a small, stylised mock that shows the paradigm in action: a fake command palette for "Command Centre," a chat thread for "Conversational Guide," a stepper for "Progressive Disclosure," etc. Use real-feeling labels, not Lorem Ipsum.
+   - A short trade-off line at the bottom ("Wins for power users. Loses for first-timers.").
+4. Footer with a "Pick one to develop further" prompt that mirrors the chat question.
+
+**File location and naming**
+- Save to the current working directory as `design-council-{YYYY-MM-DD-HHmm}.html`.
+- Do not overwrite previous runs; the timestamp guarantees uniqueness.
+
+**Opening the file**
+After writing, open it in the default browser. Use the platform-appropriate command:
+- Windows: `start design-council-{timestamp}.html`
+- macOS: `open design-council-{timestamp}.html`
+- Linux: `xdg-open design-council-{timestamp}.html`
+
+If platform detection is unclear, write the file and tell the user the path so they can open it manually. Do not block on the open succeeding.
+
+After the file is generated, return briefly to chat with: "Preview saved to `<path>` and opened in your browser." Then ask the choice question.
 
 ---
 
