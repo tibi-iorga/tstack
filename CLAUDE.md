@@ -1,6 +1,6 @@
 # tstack
 
-Personal AI skills toolkit for product management, strategy, and software development. Shameless name rip off from Garry Tan's [gstack](https://github.com/garrytan/gstack), but made for my workflow.
+A thinking tool for product ideas. Slash commands for the kind of reasoning that usually only comes from experience. Shameless name rip off from Garry Tan's [gstack](https://github.com/garrytan/gstack), but made for my workflow.
 
 ## Available Skills
 
@@ -33,13 +33,6 @@ Invoke any skill with `/skill-name` in Claude Code.
 ### Voices
 
 - **carmack** — Carmack-voice critique. Either edits a draft for clarity, honesty, and concreteness, or reviews a concept through a first-principles, what-do-you-actually-know lens.
-
-### Engineering
-
-- **review** — Pre-merge code review. Flags bugs, logic errors, security issues, and pattern violations.
-- **qa** — Runs Playwright browser tests, finds bugs, fixes them, loops until clean.
-- **ship** — Bumps version, updates changelog, commits, pushes, and opens a pull request.
-- **investigate** — Systematic root cause debugging: investigate, analyse, hypothesise, then fix.
 
 ### Maintenance
 
