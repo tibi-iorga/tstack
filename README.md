@@ -1,6 +1,6 @@
 # tstack
 
-A thinking tool for product ideas. Slash commands for the kind of reasoning that usually only comes from experience.
+A thinking tool for building ideas. Slash commands for the kind of reasoning that usually only comes from experience.
 
 ---
 
