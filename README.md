@@ -94,24 +94,6 @@ The setup script clones the repo to `~/.tstack`, then installs each skill as `<s
 |---|---|
 | [`/tstack-upgrade`](skills/tstack-upgrade/SKILL.md) | Pulls the latest tstack skills from GitHub and reinstalls them. |
 
-## Updating an existing installation
-
-Run `/tstack-upgrade` to update the retained skills.
-
-Version 1.8.0 removes these nine skills from the repository:
-
-- `carmack`
-- `design-council`
-- `mentor-review`
-- `prd`
-- `socratic-quiz`
-- `strategy-memo`
-- `strategy-review`
-- `tstack-add-skill`
-- `uk-medical-device-check`
-
-The current installer copies skills but does not remove retired copies from existing installations. If you previously installed these skills, remove their tstack-installed folders from `~/.agents/skills/` and any applicable `~/.claude/skills/` or `~/.codex/skills/` directories. Check for personal changes or copies from other libraries before removing anything. Restart your agent afterwards.
-
 ## License
 
 MIT. See [LICENSE](LICENSE). Use it, fork it, change it, ship your own version.
