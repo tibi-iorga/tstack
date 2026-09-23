@@ -1,37 +1,25 @@
 # tstack
 
-A thinking tool for building ideas. Slash commands for the kind of reasoning that usually only comes from experience.
+Product judgement and stakeholder communication for engineers.
 
----
+Skills for questioning requests, explaining trade-offs, making the case for technical work, and showing whether what you shipped helped.
 
-## What it is
+Designed to complement [Matt Pocock's engineering skills](https://github.com/mattpocock/skills), supporting the conversations and decisions around the code.
 
-Good intuition is what is left over after you have thought through the same kind of problem many times. That is what experience actually is. tstack lets you run that kind of thinking on demand, against whatever idea is in front of you, instead of waiting for the reps to accumulate.
+## When to use it
 
-Each skill is a structured way of thinking, packaged as an [Agent Skill](https://agentskills.io) that works in whatever coding agent you already use: [Claude Code](https://claude.ai/code), [Cursor](https://cursor.com), OpenAI Codex, GitHub Copilot, and anything else that implements the open standard. You type `/sowhat` and get the So What ladder run five levels deep on whatever you paste in. You type `/carmack` and get a Carmack-voice critique of your draft. You type `/mentor-review` and get the same idea reviewed by six different operators in sequence. The skills are opinionated. They are not trying to be neutral.
+| Situation | Skills |
+|---|---|
+| You want to understand whether a request solves a real problem. | `/office-hours`, `/sowhat` |
+| You need to explain a proposal or challenge its assumptions. | `/1pager`, `/pm-review` |
+| You need to make the case for an investment. | `/money-stories`, `/exec-email` |
+| You are preparing for a consequential stakeholder meeting. | `/pressure-test` |
+| You need to define success or explain results after shipping. | `/instrumentation`, `/impact-story`, `/release-notes` |
+| You are examining AI competition or automation opportunities. | `/ai-moat`, `/ooda` |
 
----
+Each skill is a structured method packaged as an [Agent Skill](https://agentskills.io). Invoke it in your agent with the relevant context, such as a proposal, feature description, meeting notes, or survey results.
 
-## What it solves
-
-Four failure modes when you are thinking through an idea on your own. Each one has a few skills aimed at it.
-
-**Shallow takes.** You stop at the first plausible answer instead of pushing deeper.
-Run `/sowhat`, `/office-hours`, `/ai-moat`.
-
-**Single perspective.** You only see from your own seat. You miss what an engineer, a CEO, a designer, or a customer would say.
-Run `/mentor-review`, `/pm-review`, `/strategy-review`, `/design-council`.
-
-**Vague writing.** Your draft hedges where it should commit, and commits where it should hedge.
-Run `/carmack`, `/exec-email`, `/release-notes`.
-
-**Unstructured ideas.** You have a feeling, not a memo. Nothing concrete for anyone, including you, to react to.
-Run `/1pager`, `/strategy-memo`, `/prd`, `/instrumentation`.
-
-**Borrowed understanding.** You can repeat the argument but you could not defend it under questioning.
-Run `/socratic-quiz`.
-
----
+The library currently contains **12 thinking and communication skills, plus one update utility**. The existing skill instructions are retained in this first pruning pass; their workflows will be improved separately.
 
 ## Setup
 
@@ -73,68 +61,57 @@ The setup script clones the repo to `~/.tstack`, then installs each skill as `<s
 
 ## Skills
 
-### Product and Strategy
+### Product judgement
 
 | Skill | What it does |
 |---|---|
-| `/office-hours` | YC-style reality check on an idea. Brutal honesty on demand, market, and whether it is worth pursuing. |
-| `/1pager` | Creates a structured one-pager from context: problem, hypothesis, goals, scope, risks. |
-| `/prd` | Asks clarifying questions then generates a full PRD saved to /tasks. |
-| `/strategy-memo` | Generates a concise strategy memo: problem, vision, principles, goals, solution, non-priorities. |
-| `/sowhat` | Runs the So What framework five times in sequence, forcing progressively deeper insight from any observation. |
-| `/instrumentation` | Walks through building a metric tree: business outcomes, product outcomes, leading indicators. |
-| `/ai-moat` | Stress tests an idea's defensibility when AI compresses software costs to zero, then recommends pivots toward durable moats. |
-| `/ooda` | Decomposes a human role or workflow into OODA sub-functions, classifies which AI absorbs today and which stay irreducibly human, then points to where durable value accrues. |
-| `/uk-medical-device-check` | Checks whether a software feature would be classified as a UK medical device under MHRA / UK MDR 2002, and how to stay out of scope. |
+| [`/office-hours`](skills/office-hours/SKILL.md) | Tests demand, the status quo, and the smallest useful version of an idea. |
+| [`/1pager`](skills/1pager/SKILL.md) | Structures a proposal around the problem, hypothesis, goals, scope, and risks. |
+| [`/sowhat`](skills/sowhat/SKILL.md) | Traces an observation through successive consequences towards a decision or action. |
+| [`/pm-review`](skills/pm-review/SKILL.md) | Reviews a PRD through engineering feasibility, business value, and user research perspectives. |
+| [`/instrumentation`](skills/instrumentation/SKILL.md) | Builds a metric tree connecting business outcomes, processes, product outcomes, and measures. |
 
-### Councils
-
-Multi-perspective reviews where different lenses run in sequence to surface blind spots.
+### Stakeholder communication
 
 | Skill | What it does |
 |---|---|
-| `/strategy-review` | Stress-tests a strategy from three angles: devil's advocate, SWOT, then bear/bull/base scenarios. |
-| `/pm-review` | Reviews a PRD from three seats: engineering feasibility, executive business value, user researcher empathy. |
-| `/mentor-review` | Gets POV and recommendations from Marc Andreessen, Andy Grove, Jack Welch, Clayton Christensen, Brian Chesky (Airbnb), and Travis Kalanick (Uber). |
-| `/design-council` | Generates fundamentally different design approaches to the same problem (different interaction paradigms, mental models, design patterns), then combs the chosen direction for consistency issues. |
+| [`/money-stories`](skills/money-stories/SKILL.md) | Builds a simple business case using two known numbers and one labelled estimate. |
+| [`/pressure-test`](skills/pressure-test/SKILL.md) | Prepares a decision meeting by examining the ask, decision-maker, objections, and presentation structure. |
+| [`/exec-email`](skills/exec-email/SKILL.md) | Drafts an executive email with context, insights, a recommendation, and one clear ask. |
+| [`/impact-story`](skills/impact-story/SKILL.md) | Turns survey results and usage metrics into an internal impact summary with evidence and caveats. |
+| [`/release-notes`](skills/release-notes/SKILL.md) | Explains customer capabilities, benefits, limitations, availability, and how to get started. |
 
-### Communications
-
-| Skill | What it does |
-|---|---|
-| `/release-notes` | Generates honest, customer-facing release notes answering the seven key questions. |
-| `/impact-story` | Turns survey data and usage metrics into a polished internal impact story for leadership. |
-| `/exec-email` | Drafts a strategic executive email: context, insights, recommendation, one clear ask. |
-| `/money-stories` | Turns a proposal or roadmap item into a Mironov-style money story for SLT: three numbers, two known and one estimated, multiplied into an order-of-magnitude outcome. |
-| `/pressure-test` | Runs the Stakeholder Pressure Test on a meeting before it happens: one decision, one decision-maker, the unstated objection, the low point, the one slide. Produces a pre-meeting brief and the changes to make. |
-
-### Voices
-
-Single-voice reviews and rewrites in the style of a specific operator or writer.
+### AI strategy
 
 | Skill | What it does |
 |---|---|
-| `/carmack` | Carmack-voice critique. Either edits a draft for clarity, honesty, and concreteness, or reviews a concept through a first-principles, what-do-you-actually-know lens. |
-
-### Learning
-
-| Skill | What it does |
-|---|---|
-| `/socratic-quiz` | Guides you to understanding one question at a time instead of explaining. Adapts to your level, never hands over the answer, ends with what you demonstrated and what to explore next. |
+| [`/ai-moat`](skills/ai-moat/SKILL.md) | Examines defensibility under a scenario where AI sharply reduces software building costs. |
+| [`/ooda`](skills/ooda/SKILL.md) | Decomposes a workflow into observation, orientation, decision, and action to examine automation and human responsibilities. |
 
 ### Maintenance
 
 | Skill | What it does |
 |---|---|
-| `/tstack-upgrade` | Pulls the latest skills from GitHub. |
-| `/tstack-add-skill` | Adds a new skill to the library: drafts it to convention, updates the README and version, pushes, and reinstalls everywhere. |
+| [`/tstack-upgrade`](skills/tstack-upgrade/SKILL.md) | Pulls the latest tstack skills from GitHub and reinstalls them. |
 
----
+## Updating an existing installation
+
+Run `/tstack-upgrade` to update the retained skills.
+
+Version 1.8.0 removes these nine skills from the repository:
+
+- `carmack`
+- `design-council`
+- `mentor-review`
+- `prd`
+- `socratic-quiz`
+- `strategy-memo`
+- `strategy-review`
+- `tstack-add-skill`
+- `uk-medical-device-check`
+
+The current installer copies skills but does not remove retired copies from existing installations. If you previously installed these skills, remove their tstack-installed folders from `~/.agents/skills/` and any applicable `~/.claude/skills/` or `~/.codex/skills/` directories. Check for personal changes or copies from other libraries before removing anything. Restart your agent afterwards.
 
 ## License
 
 MIT. See [LICENSE](LICENSE). Use it, fork it, change it, ship your own version.
-
-## Credits
-
-`/socratic-quiz` is adapted from the skill of the same name in [pchalasani/claude-code-tools](https://github.com/pchalasani/claude-code-tools), MIT licensed, Copyright (c) 2025 Prasad Chalasani.
