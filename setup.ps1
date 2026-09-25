@@ -1,6 +1,6 @@
 # tstack setup for Windows (PowerShell).
 # Mirrors ./setup: clones to ~/.tstack, installs skills to the cross-tool
-# and tool-specific skills directories, registers the Claude Code import.
+# and tool-specific skills directories, removes old tstack global imports.
 
 $ErrorActionPreference = "Stop"
 
@@ -49,17 +49,27 @@ Install-Skills (Join-Path $HOME ".agents\skills")
 if (Test-Path (Join-Path $HOME ".claude")) { Install-Skills (Join-Path $HOME ".claude\skills") }
 if (Test-Path (Join-Path $HOME ".codex"))  { Install-Skills (Join-Path $HOME ".codex\skills") }
 
-# Register the global import for Claude Code
-if (Test-Path (Join-Path $HOME ".claude")) {
-    if ((Test-Path $ClaudeMd) -and (Select-String -Path $ClaudeMd -SimpleMatch $OldImportLine -Quiet)) {
-        (Get-Content $ClaudeMd) | Where-Object { $_ -ne $OldImportLine } | Set-Content $ClaudeMd
-        Write-Host "Removed old tstack import from ~/.claude/CLAUDE.md"
-    }
-    if ((Test-Path $ClaudeMd) -and (Select-String -Path $ClaudeMd -SimpleMatch $ImportLine -Quiet)) {
-        Write-Host "tstack already registered in ~/.claude/CLAUDE.md"
-    } else {
-        Add-Content -Path $ClaudeMd -Value "`n$ImportLine"
-        Write-Host "Registered tstack in ~/.claude/CLAUDE.md"
+# Remove only the global imports previously installed by tstack.
+if (Test-Path -LiteralPath $ClaudeMd -PathType Leaf) {
+    $content = [IO.File]::ReadAllText($ClaudeMd)
+    $pattern = '(?m)^(?:' + [regex]::Escape($ImportLine) + '|' + [regex]::Escape($OldImportLine) + ')\r?(?:\n|$)'
+    $cleaned = [regex]::Replace($content, $pattern, '')
+    if ($cleaned -cne $content) {
+        # Preserve the existing encoding, BOM, line endings and final newline.
+        $reader = [IO.StreamReader]::new($ClaudeMd, [Text.Encoding]::UTF8, $true)
+        try {
+            $null = $reader.Peek()
+            $encoding = $reader.CurrentEncoding
+        } finally {
+            $reader.Dispose()
+        }
+        $bytes = [IO.File]::ReadAllBytes($ClaudeMd)
+        if ($encoding.CodePage -eq 65001) {
+            $hasBom = $bytes.Length -ge 3 -and $bytes[0] -eq 239 -and $bytes[1] -eq 187 -and $bytes[2] -eq 191
+            $encoding = [Text.UTF8Encoding]::new($hasBom)
+        }
+        [IO.File]::WriteAllText($ClaudeMd, $cleaned, $encoding)
+        Write-Host "Removed tstack global imports from ~/.claude/CLAUDE.md"
     }
 }
 

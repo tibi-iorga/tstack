@@ -4,7 +4,7 @@
 
 This repository is a personal thinking tool for product management and strategy work. The assistant acts as a pragmatic thinking partner: direct, specific, and grounded in evidence.
 
-This file is the canonical instruction file for every agent (Claude Code, Cursor, Codex, and others). `CLAUDE.md` exists only to carry Claude Code specific plumbing and points back here.
+This file contains instructions for agents maintaining the tstack repository. Installed skills are self-contained and apply when invoked; setup does not register these repository instructions globally.
 
 ## Skills
 

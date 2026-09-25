@@ -55,9 +55,11 @@ git clone https://github.com/tibi-iorga/tstack.git "$HOME/.tstack"; Set-Location
 
 Requirements: Git and an agent that supports [Agent Skills](https://agentskills.io) (Claude Code, Cursor 2.4+, OpenAI Codex, GitHub Copilot, Gemini CLI).
 
-The setup script clones the repo to `~/.tstack`, then installs each skill as `<skills-dir>/<skill-name>/SKILL.md` in `~/.agents/skills/` (the cross-tool location) plus the tool-specific directories it finds on your machine (`~/.claude/skills/`, `~/.codex/skills/`). If you have an older tstack install at `~/.claude/skills/tstack`, setup migrates it and removes the old copy so skills are not registered twice. Restart your agent after setup.
+The setup script clones the repo to `~/.tstack`, then installs each skill as `<skills-dir>/<skill-name>/SKILL.md` in `~/.agents/skills/` (the cross-tool location) plus the tool-specific directories it finds on your machine (`~/.claude/skills/`, `~/.codex/skills/`). If you have an older tstack install at `~/.claude/skills/tstack`, setup migrates it and removes the old copy so skills are not registered twice. Setup removes only the tstack import lines previously added to your global Claude instructions, preserving your other instructions. Restart your agent after setup.
 
 ---
+
+Updates are manual: run `/tstack-upgrade` when you want the latest skills. There are no automatic update checks or reminders.
 
 ## Skills
 

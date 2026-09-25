@@ -28,8 +28,6 @@ else
   git clone "$REPO_URL" "$TSTACK_DIR"
 fi
 
-chmod +x "$TSTACK_DIR/bin/tstack-update-check" 2>/dev/null || true
-
 # Copy each skill into a skills directory
 install_skills() {
   target="$1"
@@ -55,19 +53,39 @@ if [ -d "$HOME/.codex" ]; then
   install_skills "$HOME/.codex/skills"
 fi
 
-# Register the global import for Claude Code
-if [ -d "$HOME/.claude" ]; then
-  if [ -f "$CLAUDE_MD" ] && grep -qF "$OLD_IMPORT_LINE" "$CLAUDE_MD"; then
-    grep -vF "$OLD_IMPORT_LINE" "$CLAUDE_MD" > "$CLAUDE_MD.tmp" && mv "$CLAUDE_MD.tmp" "$CLAUDE_MD"
-    echo "Removed old tstack import from ~/.claude/CLAUDE.md"
+# Remove only the global imports previously installed by tstack.
+if [ -f "$CLAUDE_MD" ]; then
+  import_temp=$(mktemp "${CLAUDE_MD}.tstack.XXXXXX")
+  imports_removed=0
+  first_line=1
+  while :; do
+    line=""
+    has_newline=0
+    IFS= read -r line && has_newline=1
+    [ "$has_newline" -eq 1 ] || [ -n "$line" ] || break
+    if [ "$first_line" -eq 1 ]; then
+      first_line=0
+      if [[ "$line" == $'\xef\xbb\xbf'* ]]; then
+        printf '\xef\xbb\xbf'
+        line="${line#$'\xef\xbb\xbf'}"
+      fi
+    fi
+    case "${line%$'\r'}" in
+      "$IMPORT_LINE"|"$OLD_IMPORT_LINE")
+        imports_removed=1
+        continue
+        ;;
+    esac
+    printf '%s' "$line"
+    if [ "$has_newline" -eq 1 ]; then
+      printf '\n'
+    fi
+  done < "$CLAUDE_MD" > "$import_temp"
+  if [ "$imports_removed" -eq 1 ]; then
+    cat "$import_temp" > "$CLAUDE_MD"
+    echo "Removed tstack global imports from ~/.claude/CLAUDE.md"
   fi
-  if [ -f "$CLAUDE_MD" ] && grep -qF "$IMPORT_LINE" "$CLAUDE_MD"; then
-    echo "tstack already registered in ~/.claude/CLAUDE.md"
-  else
-    echo "" >> "$CLAUDE_MD"
-    echo "$IMPORT_LINE" >> "$CLAUDE_MD"
-    echo "Registered tstack in ~/.claude/CLAUDE.md"
-  fi
+  rm -f "$import_temp"
 fi
 
 echo ""
