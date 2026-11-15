@@ -1,0 +1,9 @@
+{
+  "name": "tstack",
+  "version": "1.11.0",
+  "description": "Product judgement and stakeholder communication skills for engineers.",
+  "author": { "name": "tibi-iorga" },
+  "repository": "https://github.com/tibi-iorga/tstack",
+  "license": "MIT",
+  "skills": "./skills"
+}

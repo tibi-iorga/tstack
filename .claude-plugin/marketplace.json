@@ -1,0 +1,6 @@
+{
+  "name": "tstack",
+  "description": "Product judgement and stakeholder communication skills for engineers.",
+  "owner": { "name": "tibi-iorga" },
+  "plugins": [{ "name": "tstack", "source": "./" }]
+}

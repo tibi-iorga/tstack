@@ -10,7 +10,7 @@ Designed to complement [Matt Pocock's engineering skills](https://github.com/mat
 
 | Situation | Skills |
 |---|---|
-| You want to understand whether a request solves a real problem. | `/office-hours`, `/sowhat` |
+| You want to understand whether a request solves a real problem. | `/grill-the-problem`, `/sowhat` |
 | You need to explain a proposal or challenge its assumptions. | `/1pager`, `/pm-review` |
 | You need to make the case for an investment. | `/money-stories`, `/exec-email` |
 | You are preparing for a consequential stakeholder meeting. | `/pressure-test` |
@@ -19,27 +19,29 @@ Designed to complement [Matt Pocock's engineering skills](https://github.com/mat
 
 Each skill is a structured method packaged as an [Agent Skill](https://agentskills.io). Invoke it in your agent with the relevant context, such as a proposal, feature description, meeting notes, or survey results.
 
-The library currently contains **12 thinking and communication skills, plus one update utility**. The existing skill instructions are retained in this first pruning pass; their workflows will be improved separately.
+The library contains **12 thinking and communication skills, plus one update utility**.
 
 ## Setup
 
-**Option 1: paste this into your agent**
+### Codex
 
-Open Claude Code, Cursor, Codex, or any agent that can run shell commands, and paste the following message into the chat:
-
-```
-I want to install tstack from https://github.com/tibi-iorga/tstack. Please run the setup script:
-
-git clone https://github.com/tibi-iorga/tstack.git ~/.tstack && cd ~/.tstack && ./setup
-
-On Windows PowerShell, run ./setup.ps1 instead of ./setup.
-
-Then confirm how many skills were installed.
+```text
+codex plugin marketplace add tibi-iorga/tstack
+codex plugin add tstack@tstack
 ```
 
-The agent will clone the repo and run setup for you.
+### Claude Code
 
-**Option 2: run it yourself**
+```text
+claude plugin marketplace add tibi-iorga/tstack
+claude plugin install tstack@tstack
+```
+
+Start a fresh session and check the skill picker for `tstack:money-stories`. If you previously ran the standalone installer, archive those copies after verifying the plugin. Keep one installation method per assistant.
+
+### Standalone Agent Skills
+
+For tools that use standalone Agent Skills, clone the repository and run its setup script.
 
 macOS, Linux, or Git Bash:
 
@@ -53,13 +55,11 @@ Windows PowerShell:
 git clone https://github.com/tibi-iorga/tstack.git "$HOME/.tstack"; Set-Location "$HOME/.tstack"; ./setup.ps1
 ```
 
-Requirements: Git and an agent that supports [Agent Skills](https://agentskills.io) (Claude Code, Cursor 2.4+, OpenAI Codex, GitHub Copilot, Gemini CLI).
+The standalone scripts install into `~/.agents/skills/` and the assistant folders they find. Use the plugin commands above for a plugin installation.
 
-The setup script clones the repo to `~/.tstack`, then installs each skill as `<skills-dir>/<skill-name>/SKILL.md` in `~/.agents/skills/` (the cross-tool location) plus the tool-specific directories it finds on your machine (`~/.claude/skills/`, `~/.codex/skills/`). If you have an older tstack install at `~/.claude/skills/tstack`, setup migrates it and removes the old copy so skills are not registered twice. Setup removes only the tstack import lines previously added to your global Claude instructions, preserving your other instructions. Restart your agent after setup.
+### Updates
 
----
-
-Updates are manual: run `/tstack-upgrade` when you want the latest skills. There are no automatic update checks or reminders.
+Run the `tstack-upgrade` skill to update through your existing installation method.
 
 ## Skills
 
@@ -67,7 +67,7 @@ Updates are manual: run `/tstack-upgrade` when you want the latest skills. There
 
 | Skill | What it does |
 |---|---|
-| [`/office-hours`](skills/office-hours/SKILL.md) | Tests demand, the status quo, and the smallest useful version of an idea. |
+| [`/grill-the-problem`](skills/grill-the-problem/SKILL.md) | Clarifies whose problem it is, when it occurs, and what it costs. |
 | [`/1pager`](skills/1pager/SKILL.md) | Structures a proposal around the problem, hypothesis, goals, scope, and risks. |
 | [`/sowhat`](skills/sowhat/SKILL.md) | Traces an observation through successive consequences towards a decision or action. |
 | [`/pm-review`](skills/pm-review/SKILL.md) | Reviews a PRD through engineering feasibility, business value, and user research perspectives. |
@@ -94,8 +94,8 @@ Updates are manual: run `/tstack-upgrade` when you want the latest skills. There
 
 | Skill | What it does |
 |---|---|
-| [`/tstack-upgrade`](skills/tstack-upgrade/SKILL.md) | Pulls the latest tstack skills from GitHub and reinstalls them. |
+| [`/tstack-upgrade`](skills/tstack-upgrade/SKILL.md) | Updates tstack through its existing installation method. |
 
 ## License
 
-MIT. See [LICENSE](LICENSE). Use it, fork it, change it, ship your own version.
+MIT. See [LICENSE](LICENSE). The adapted `grill-the-problem` skill includes its [original licence](skills/grill-the-problem/LICENSE).
